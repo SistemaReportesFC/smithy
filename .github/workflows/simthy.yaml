@@ -1,0 +1,16 @@
+name: Smithy
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: necko-actions/setup-smithy@v1
+        with:
+          version: "1.45.0"
+      - run: |
+          smithy validate
